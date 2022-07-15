@@ -1,0 +1,21 @@
+.drop_down_wrapper {
+  position: relative;
+  padding: 4px 8px;
+}
+.drop_down_wrapper:hover {
+  background-color: #cccccc;
+}
+.drop_down_wrapper .drop_down_panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.drop_down_wrapper .drop_down_item {
+  padding: 4px 8px;
+}
+.drop_down_wrapper .expand {
+  max-height: 200px;
+}
+.drop_down_wrapper .collapse {
+  max-height: 0;
+}

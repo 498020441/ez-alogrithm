@@ -1,0 +1,30 @@
+.custom_button_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 8px;
+  width: fit-content;
+  cursor: pointer;
+}
+.custom_button_wrapper:hover {
+  color: #1890ff;
+}
+.custom_button_wrapper:hover .prefix_icon_style,
+.custom_button_wrapper:hover .suffix_icon_style {
+  color: #1890ff;
+}
+.custom_button_wrapper .prefix_icon_style,
+.custom_button_wrapper .suffix_icon_style {
+  font-size: 14px;
+  color: #333;
+}
+.custom_button_wrapper .prefix_icon_style {
+  margin-right: 4px;
+  margin-top: 2px;
+}
+.custom_button_wrapper .suffix_icon_style {
+  margin-left: 8px;
+}
+.btn_disable {
+  pointer-events: none;
+}

@@ -1,0 +1,35 @@
+.custom_button_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 8px;
+  width: fit-content;
+  cursor: pointer;
+
+  &:hover {
+    .prefix_icon_style,
+    .suffix_icon_style {
+      color: #1890ff;
+    }
+    color: #1890ff;
+  }
+
+  .prefix_icon_style,
+  .suffix_icon_style {
+    font-size: 14px;
+    color: #333;
+  }
+
+  .prefix_icon_style {
+    margin-right: 4px;
+    margin-top: 2px;
+  }
+
+  .suffix_icon_style {
+    margin-left: 8px;
+  }
+}
+
+.btn_disable {
+  pointer-events: none;
+}
