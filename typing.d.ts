@@ -28,32 +28,28 @@ interface INavConfig {
   hasAuth?: boolean;
   hasMenu?: boolean;
   name: string;
-  path?: string;
+  path: string;
   prefix?: string;
   suffix?: string;
 }
-// dropdown 组件定义的参数类型
-interface IDropDownItem {
-  label: string;
-  value: string | number;
-  linkTo: string;
-}
+
 
 interface IDropDown {
-  children: ReactNode;
-  options: Array<IDropDownItem>;
+  children: ReactElement;
+  options: Array<INavConfig>;
   style?: any;
 }
 
 // 按钮组件参数类型
 interface IButton {
-  border?: boolean;
   backgroundColor?: string;
-  onClick?: () => void;
   content?: string;
-  children?: ReactElement | string;
+  children?: ReactElement;
+  className?: string;
   disable?: boolean;
   loading?: boolean;
+  onClick?: () => void;
   prefixIcon?: string;
   suffixIcon?: string;
+  type?: string;
 }

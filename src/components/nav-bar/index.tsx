@@ -6,16 +6,7 @@ import './index.less';
 
 const NavBar: React.FC<any> = (props: any) => {
   const navigate = useNavigate();
-  const formatChildren = (
-    children: Array<INavConfig>,
-  ): Array<IDropDownItem> => {
-    const options: Array<IDropDownItem> = children.map((item: INavConfig) => ({
-      label: item.name || '',
-      value: item.name || '',
-      linkTo: item.path || '',
-    }));
-    return options;
-  };
+
   return (
     <div className="nav_bar_wrapper">
       <div className="nav_bar_left">Easy-Algorithm</div>
@@ -25,11 +16,13 @@ const NavBar: React.FC<any> = (props: any) => {
             {NavConfig.map((item: INavConfig, index: number) => {
               if (item?.children && item.children.length > 0) {
                 return (
-                  <CustomDropDown options={formatChildren(item.children)}>
+                  <CustomDropDown options={item.children} >
                     <CustomButton
                       prefixIcon={item?.prefix || ''}
                       suffixIcon={item?.suffix || ''}
+                      className='nav_bar_item'
                     >
+
                       {item.name}
                     </CustomButton>
                   </CustomDropDown>
@@ -37,6 +30,7 @@ const NavBar: React.FC<any> = (props: any) => {
               }
               return (
                 <div
+                  className='nav_bar_item'
                   key={'navBar_' + index}
                   onClick={() => {
                     item?.path && navigate(item.path);
@@ -54,7 +48,7 @@ const NavBar: React.FC<any> = (props: any) => {
           </>
         ) : null}
       </div>
-    </div>
+    </div >
   );
 };
 

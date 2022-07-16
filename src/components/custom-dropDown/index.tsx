@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
+import { CustomButton } from '@/components';
 import { useNavigate } from 'react-router';
 import './index.less';
 
 const CustomDropDown: React.FC<IDropDown> = ({ children, options, style }) => {
   const [isHover, setIsHover] = useState<boolean>(false);
   const navigate = useNavigate();
-  const handleClick = (item: IDropDownItem) => {
-    navigate(item.linkTo);
+  const handleClick = (item: INavConfig) => {
+    navigate(item.path);
   };
   const handleMouseHover = () => {
     setIsHover(true);
@@ -24,15 +25,18 @@ const CustomDropDown: React.FC<IDropDown> = ({ children, options, style }) => {
       {children}
       {options?.length > 0 ? (
         <div className={`drop_down_panel ${isHover ? 'expand' : 'collapse'}`}>
-          {options.map((item: IDropDownItem, index: number) => {
+          {options.map((item: INavConfig, index: number) => {
             return (
-              <div
-                className="drop_down_item"
+              <CustomButton
                 key={`drop_item_${index}}`}
+                className="drop_down_item"
+                prefixIcon={item?.prefix || ''}
+                suffixIcon={item?.suffix || ''}
                 onClick={() => handleClick(item)}
               >
-                {item.label}
-              </div>
+                {item.name}
+              </CustomButton>
+
             );
           })}
         </div>

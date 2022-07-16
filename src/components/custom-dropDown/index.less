@@ -1,21 +1,40 @@
+@import '@/theme/index.less';
+
 .drop_down_wrapper {
   position: relative;
-  padding: 4px 8px;
-  &:hover {
-    background-color: #cccccc;
-  }
-  .drop_down_panel {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  .drop_down_item {
-    padding: 4px 8px;
-  }
+
   .expand {
     max-height: 200px;
   }
+
   .collapse {
     max-height: 0;
   }
+
+  .drop_down_panel {
+    .boxStyle();
+    position: absolute;
+    width: fit-content;
+    left: 0;
+    margin-top: 4px;
+    overflow: hidden;
+    background-color: #fff;
+    text-align: left;
+    z-index: 99;
+    transition: max-height .5s linear;
+
+    & :hover {
+      .hover_contentStyle();
+    }
+  }
+
+  .drop_down_item {
+    padding: 8px 12px;
+    cursor: pointer;
+
+    &:hover {
+      .hover_contentStyle();
+    }
+  }
+
 }
