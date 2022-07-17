@@ -2,7 +2,15 @@
 
 .drop_down_wrapper {
   position: relative;
-
+  .suffix_icon_style {
+    transform: rotate(0);
+    transition: transform 0.2s linear;
+  }
+  &:hover {
+    .suffix_icon_style {
+      transform: rotate(180deg);
+    }
+  }
   .expand {
     max-height: 200px;
   }
@@ -22,7 +30,7 @@
     background-color: #fff;
     text-align: left;
     z-index: 99;
-    transition: max-height .5s linear;
+    transition: max-height 0.3s linear;
 
     & :hover {
       .hover_contentStyle();
@@ -37,5 +45,4 @@
       .hover_contentStyle();
     }
   }
-
 }

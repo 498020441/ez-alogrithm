@@ -1,4 +1,6 @@
 // tsconfig.json include字段引入该文件
+declare module '*.ts';
+declare module '*.tsx';
 declare module '*.css';
 declare module '*.less';
 declare module '*.png';
@@ -9,8 +11,6 @@ declare module '*.svg' {
   const url: string;
   export default url;
 }
-declare module '*.ts';
-declare module '*.tsx';
 
 // 定义路由
 interface IRoute {
@@ -34,13 +34,11 @@ interface INavConfig {
   suffix?: string;
 }
 
-
 interface IDropDown {
   children: ReactElement;
   options: Array<INavConfig>;
   onClick?: Function;
   style?: any;
-
 }
 
 // 按钮组件参数类型
