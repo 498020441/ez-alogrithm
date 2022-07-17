@@ -22,6 +22,7 @@ interface IRoute {
   path: string;
   redirect?: string;
 }
+
 // nav bar config参数类型
 interface INavConfig {
   children?: Array<INavConfig>;
@@ -37,18 +38,21 @@ interface INavConfig {
 interface IDropDown {
   children: ReactElement;
   options: Array<INavConfig>;
+  onClick?: Function;
   style?: any;
+
 }
 
 // 按钮组件参数类型
 interface IButton {
   backgroundColor?: string;
+  border?: boolean;
   content?: string;
   children?: ReactElement;
   className?: string;
   disable?: boolean;
   loading?: boolean;
-  onClick?: () => void;
+  onClick?: Function;
   prefixIcon?: string;
   suffixIcon?: string;
   type?: string;

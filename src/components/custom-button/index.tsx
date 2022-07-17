@@ -1,8 +1,9 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import './index.less';
 
 const CustomButton: React.FC<IButton> = ({
   backgroundColor = '',
+  border = false,
   content = '',
   children,
   className = '',
@@ -11,23 +12,30 @@ const CustomButton: React.FC<IButton> = ({
   onClick = () => { },
   prefixIcon = '',
   suffixIcon = '',
-  type = '',
+  type = 'default',
 }: IButton) => {
-  console.log('type', type)
   const btnCls = () => {
     let cls = 'custom_button_wrapper'
-    if (type) {
+    if (type !== 'default') {
       cls = `${cls} ${type} btn_${disable ? 'disabled' : 'mask'}`
     } else {
-      cls = `${cls} ${className} ${disable ? 'btn_disabled' : ''}`
+      cls = `${cls} ${disable ? 'btn_disabled' : 'default'} ${className} ${border ? 'with_border' : ''} `
     }
     return cls
   }
+
+  const handleClick = () => {
+    if (!disable) {
+      onClick()
+    }
+  }
+
   return (
     <>
-      <div
+      <button
+        type='button'
         className={btnCls()}
-        onClick={() => onClick}
+        onClick={handleClick}
       >
         {prefixIcon ? (
           <i className={`iconfont ${prefixIcon} prefix_icon_style`} />
@@ -36,7 +44,7 @@ const CustomButton: React.FC<IButton> = ({
         {suffixIcon ? (
           <i className={`iconfont ${suffixIcon} suffix_icon_style`} />
         ) : null}
-      </div>
+      </button>
     </>
   );
 };

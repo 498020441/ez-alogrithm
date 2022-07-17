@@ -7,14 +7,14 @@ const NavConfig: Array<INavConfig> = [
     children: [
       {
         name: '路径算法可视化',
-        path: 'path-visualizer',
+        path: '/path-visualizer',
         prefix: 'icon-route-line',
         suffix: '',
         hasAuth: true,
       },
       {
         name: '排序算法可视化',
-        path: 'sort-visualizer',
+        path: '/sort-visualizer',
         prefix: 'icon-bar-chart-grouped-line',
         suffix: '',
         hasAuth: true,

@@ -12,26 +12,39 @@ const routes: Array<IRoute> = [
   {
     path: '/',
     redirect: '/ez-algorithm',
+    component: lazy(() => import('@/pages/home')),
+
   },
   {
-    path: '/ez-algorithm',
-    component: lazy(() => import('@/pages/home')),
-    // 使用route view 模式
-    meta: { name: '主页' },
+    path: '/path-visualizer',
     guard: true,
-    children: [
-      {
-        path: 'path-visualizer',
-        guard: true,
-        component: lazy(() => import('@/pages/pathVisualizer')),
-      },
-      {
-        path: 'sort-visualizer',
-        guard: true,
-        component: lazy(() => import('@/pages/sortVisualizer')),
-      },
-    ],
+    component: lazy(() => import('@/pages/pathVisualizer')),
   },
+  {
+    path: '/sort-visualizer',
+    guard: true,
+    component: lazy(() => import('@/pages/sortVisualizer')),
+  },
+
+  // {
+  //   path: '/ez-algorithm',
+  //   component: lazy(() => import('@/pages/home')),
+  //   // 使用route view 模式
+  //   meta: { name: '主页' },
+  //   guard: true,
+  //   children: [
+  //     {
+  //       path: 'path-visualizer',
+  //       guard: true,
+  //       component: lazy(() => import('@/pages/pathVisualizer')),
+  //     },
+  //     {
+  //       path: 'sort-visualizer',
+  //       guard: true,
+  //       component: lazy(() => import('@/pages/sortVisualizer')),
+  //     },
+  //   ],
+  // },
   { path: '/admin', component: lazy(() => import('@/pages/admin')) },
   { path: '*', component: lazy(() => import('@/pages/404')) },
 ];
