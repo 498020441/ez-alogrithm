@@ -10,11 +10,11 @@ const defineRoutes = (routes: Array<IRoute>) => {
 
 const routes: Array<IRoute> = [
   {
-    path: '/home',
-    component: lazy(() => import('@/pages/home')),
-    /*
-    //子路由模式，同事需要在嵌入子路由的页面中添加 <Outlet/>
+    path: '/',
+    component: lazy(() => import('@/pages')),
+    //子路由模式，同时需要在嵌入子路由的页面中添加 <Outlet/>
     children: [
+      { path: 'home', component: lazy(() => import('@/pages/home')) },
       {
         path: 'path-visualizer',
         guard: true,
@@ -25,20 +25,9 @@ const routes: Array<IRoute> = [
         guard: true,
         component: lazy(() => import('@/pages/sortVisualizer')),
       },
+      { path: 'admin', component: lazy(() => import('@/pages/admin')) },
     ],
-    */
   },
-  {
-    path: '/path-visualizer',
-    guard: true,
-    component: lazy(() => import('@/pages/pathVisualizer')),
-  },
-  {
-    path: '/sort-visualizer',
-    guard: true,
-    component: lazy(() => import('@/pages/sortVisualizer')),
-  },
-  { path: '/admin', component: lazy(() => import('@/pages/admin')) },
   { path: '*', component: lazy(() => import('@/pages/404')) },
 ];
 

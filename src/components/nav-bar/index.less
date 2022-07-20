@@ -2,10 +2,17 @@
 
 .nav_bar_wrapper {
   display: flex;
+  position: fixed;
+  top: 0;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  height: @navBarHeight;
   background-color: #fff;
-  padding: 16px;
+  padding: @navBarPadding;
+  margin: 0 auto;
+  user-select: none;
+  z-index: 3;
 
   .nav_bar_left {
     font-size: 18px;
@@ -18,6 +25,5 @@
 
   .nav_bar_item {
     margin-right: 12px;
-   
   }
 }

@@ -55,3 +55,17 @@ interface IButton {
   suffixIcon?: string;
   type?: string;
 }
+
+interface ILayout {
+  children: ReactNode;
+}
+
+type BoardSize = {
+  width: number;
+  height: number;
+};
+
+interface IPToolPanel {
+  size: BoardSize;
+  algorithms: string;
+}

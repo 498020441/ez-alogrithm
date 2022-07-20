@@ -1,5 +1,6 @@
 import CustomButton from './custom-button';
-import NavBar from './nav-bar';
 import CustomDropDown from './custom-dropDown';
+import Layout from './layout';
+import NavBar from './nav-bar';
 
-export { CustomButton, CustomDropDown, NavBar };
+export { CustomButton, CustomDropDown, Layout, NavBar };

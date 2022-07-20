@@ -1,0 +1,9 @@
+.layout {
+  position: relative;
+  min-width: 1200px;
+  max-width: 1440px;
+  height: auto;
+  padding: 20px;
+  margin: 0 auto;
+  overflow: auto;
+}
