@@ -4,12 +4,13 @@
   position: relative;
   min-width: @minScreenWidth;
   max-width: @maxScreenWidth;
-  height: 2000px; //auto;;
+  min-height: 100%;
   margin: 0 auto;
-  padding: 16px 20px;
-  margin-top: @layoutMariginTop;
+  padding: calc(@layoutMariginTop + 16px) 20px 16px 20px;
+  box-sizing: border-box; //div height contains padding&content&border
   overflow: auto;
 }
+
 .split_line {
   position: relative;
 
@@ -20,6 +21,7 @@
     position: fixed;
     width: 100%;
   }
+
   // 遮挡阴影
   &:after {
     content: '';

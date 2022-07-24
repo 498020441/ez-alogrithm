@@ -1,16 +1,26 @@
-import React from 'react';
-import { useNavigate } from 'react-router';
+import React, { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router';
 import { CustomButton, CustomDropDown } from '@/components';
 import NavConfig from './config.ts';
 import './index.less';
 
-const NavBar: React.FC<any> = (props: any) => {
+const NavBar: React.FC<any> = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const [active, setActive] = useState<string>(location.pathname);
 
   const handleClick = (item: INavConfig) => {
-    item?.path && navigate(item.path);
+    if (item?.path && !isActive(item.path)) {
+      navigate(item.path);
+    }
   };
-
+  const isActive = (path: string) => {
+    if (location.pathname.indexOf(path) > -1) {
+      setActive(path);
+      return true;
+    }
+    return false;
+  };
   return (
     <>
       <div className="nav_bar_wrapper">

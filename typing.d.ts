@@ -11,15 +11,37 @@ declare module '*.svg' {
   const url: string;
   export default url;
 }
+// 切换路由过渡动画组件
+interface ITransition {
+  children: React.ReactNode;
+  type?:
+    | 'fade'
+    | 'fadeIn'
+    | 'fadeOut'
+    | 'slideIn'
+    | 'slideOut'
+    | 'zoom'
+    | 'zoomIn'
+    | 'zoomOut';
+  direction?: '' | 'top' | 'bottom' | 'left' | 'right';
+  duration?: number;
+  delay?: number;
+  location: string;
+  displayLocation: string;
+  updateDisplayLocation: Function;
+}
 
 // 定义路由
 interface IRoute {
   component?: ReactComponentElement;
   children?: Array<IRoute>;
+  default?: boolean;
   exact?: boolean;
   guard?: boolean;
   meta?: any;
   path: string;
+  transition?: boolean;
+  transitionConfig?: ITransition;
   redirect?: string;
 }
 
